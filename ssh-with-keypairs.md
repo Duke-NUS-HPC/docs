@@ -13,7 +13,7 @@ You cannot ssh from PI's private servers due to current firewall settings.
 
 #### 1. Run `ssh-keygen` to generate a public/private key pair
 
-At the command shell on your local desktop, generate ssh keys on your local desktop
+At the command shell on your local desktop (for example, for a Windows desktop, a local shell from `mobaxterm`), generate ssh keys on your local desktop
 
 ```
 ssh-keygen -t rsa -b 5120
