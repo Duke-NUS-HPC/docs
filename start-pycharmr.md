@@ -21,8 +21,8 @@ I use pycharm for debugging python modules under specific pre-built python envir
 
      `-q`: specify which queue to use
 
-     [other PBS resources](https://help.nscc.sg/pbspro-quickstartguide/) and [parameter checklist](https://help.nscc.sg/wp-content/uploads/2016/08/PBS_Professional_Quick_Reference.pdf)
+     [PBS quickstart](https://help.nscc.sg/pbspro-quickstartguide/) and [quick reference](https://help.nscc.sg/wp-content/uploads/2016/08/PBS_Professional_Quick_Reference.pdf)
 
-  2. job request will let me enter GPU node
+  2. job request will let me us a shell on the GPU node
 
-1 Open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
+- Open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
