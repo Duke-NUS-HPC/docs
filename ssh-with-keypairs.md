@@ -1,4 +1,4 @@
-## ssh to the Duke-NUS Office of Reearch HPC cluster using key pairs
+## ssh to the Duke-NUS Office of Research HPC cluster using key pairs
 
 26 February 2022
 
