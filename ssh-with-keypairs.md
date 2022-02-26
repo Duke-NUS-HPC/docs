@@ -16,7 +16,7 @@ You cannot ssh from PI's private servers due to current firewall settings.
 
 #### 1. Run `ssh-keygen` to generate a public/private key pair
 
-At the command shell on your local desktop (for example, for a Windows desktop, a local shell from `mobaxterm`), generate ssh keys on your local desktop
+At the command shell on your local desktop (for example, for a Windows desktop, a local shell from `mobaxterm`), generate ssh keys on your local desktop.
 
 ```
 ssh-keygen -t rsa -b 5120
@@ -90,7 +90,9 @@ In the now opened shell/terminal, type
 ```
 vim .ssh/authorized_keys
 ```
-In `vim`, type "i", start a new line and paste the contents of the .pub file you just copied.
+In `vim`, type "i", start a new line and paste the contents of the .pub file you just copied using Ctl-v.
+
+*Do not damage the existing key, and make sure your new key is all on one line.*
 
 After pasting, hit and release the "Esc" key to exit insert mode in `vim`,
 and then type "ZZ" to save and exit.
