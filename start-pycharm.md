@@ -1,19 +1,17 @@
 # Run PyCharm on HPC Cluster
 
-I use pycharm for debugging python modules under specific pre-built python environments (environment name is shown as 3.8 @ ubuntu at the right corner). Sometimes I directly submit jobs in the pycharm terminal, which is linked to what node I am current in.
-
-![img](https://tidal-vibraphone-993.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7543f979-c9a5-44f9-84ba-4c3d7024c1ed%2FUntitled.png?table=block&id=72460185-3a70-40c1-8027-91b60afed41f&spaceId=487f6bbc-aed5-46da-afc4-02bb4aa10be9&width=2000&userId=&cache=v2)
+I use pycharm for debugging python modules under specific pre-built python environments. I can directly submit jobs in the pycharm terminal and python console, which is linked to what node I am current in.
 
 - [Set up X11 forwarding, then ssh to the cluster login node](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
 
 
 - Get an interactive shell with X11 forwarding on a GPU node by submitting a PBS job
 
-  1. Once logged in to the cluster login node, submit a PBS job request on `workq` with `-XI` parameters and resources needed
+  1. Once logged in to the cluster login node, submit a PBS job request on `workq` with `-IX` parameters and resources needed
 
      `qsub -IX -l select=1:ncpus=1:mem=2G:ngpus=1 -l walltime=60 -q workq`
 
-     `-IX`submitting an interactive job with X forwarding
+     `-IX`: submitting an interactive job with X forwarding
 
      `-l`: resource list
 
