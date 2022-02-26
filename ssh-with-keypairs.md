@@ -2,6 +2,9 @@
 
 26 February 2022
 
+It is hard to provide absolutely bullet-proof instructions for this because of variation
+across different setups. If you have problems, contact Steve at gmssgr@nus.edu.sg.
+
 These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluster
 
 Currently, login to the head node is enabled from local desktops within the Duke-NUS nextwork or the 
@@ -18,12 +21,7 @@ At the command shell on your local desktop (for example, for a Windows desktop, 
 ```
 ssh-keygen -t rsa -b 5120
 Output from ssh-keygen: Generating public/private rsa key pair.
-```
-
-You need a unique name for the key pair to differentiate between the different keys you might have. Here I am using `hpc_rsa`.
-
-```
-Prompt from ssh-keygen and your input: Enter the  name of the file in which to save the key (/home/willie/.ssh/id_rsa): /home/willie/.ssh/hpc_rsa
+Prompt from ssh-keygen and your input: Enter the  name of the file in which to save the key (/home/willie/.ssh/id_rsa): <hit return>
 ```
 
 Enter a passphrase to prevent unauthorized users fro accessing the HPC cluster using this key.
@@ -34,6 +32,14 @@ Enter same passphrase again: mypassphrasee#!#
 ```
 
 There is more output from `ssh-keygen` that you do not need to worry about.
+
+You need a unique name for the key pair to differentiate between the different keys you might have. Here I am using `hpc_rsa`.
+
+```
+cd .ssh
+mv id_rsa hpc_rsa
+mv id_rsa.pub hpc_rsa.pub
+```
 
 #### 2. Check the output from `ssh-keygen`
 
