@@ -7,7 +7,7 @@ across different setups. If you have problems, contact Steve at gmssgr@nus.edu.s
 
 These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluster
 
-Currently, login to the head node is enabled from local desktops within the Duke-NUS nextwork or the 
+Currently, login to the head node is enabled from local desktops within the Duke-NUS network or the 
 the login nodes of the old HPC cluster.
 
 You cannot ssh from PI's private servers due to current firewall settings.
@@ -61,7 +61,7 @@ I use `vim` but ok to use any text editor.
 vim .ssh/config
 ```
 
-In the editor innput the following in the now opened config file, 
+In the editor input the following in the now opened config file, 
 replacing the items in `<...>` as appropriate.
 ```
 Host *
@@ -82,7 +82,7 @@ Open your generated `.pub` file (e.g. `.ssh/hpc_rsa.pub` using a text editor.
 
 Copy ***EVERYTHING*** inside the `.pub` file to your clipboard.
 
-Login to the HPC clsuter via web dashboard (https://172.25.138.10:1111/pun/sys/dashboard).
+Login to the HPC cluster via web dashboard (https://172.25.138.10:1111/pun/sys/dashboard).
 
 From the web dashboard, click on the `DUKE-NUS HPC Shell Access` button.
 
@@ -104,7 +104,7 @@ Now from the same local desktop command prompt type
 ssh -X hpc
 ```
 
-If the set up is corect `ssh` should 
+If the set up is correct `ssh` should 
 prompt you to save the remote host signature, and 
 then prompt
 you to enter the passphrase for the key you have
@@ -121,5 +121,5 @@ your local desktop, *provided your local desktop is running an X11 server*.
 
 If you have different command shells on the local desktop (e.g. `mobaxterm` and e.g. the terminal window
 in `Rstudio`), they will probably have different locations for their respective `.ssh\` folders. If so, you need
-make sure the priviate keys and `config` files are the same in the different `.ssh\` folder.
+make sure the private keys and `config` files are the same in the different `.ssh\` folder.
 
