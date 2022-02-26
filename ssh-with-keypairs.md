@@ -84,15 +84,15 @@ Copy ***EVERYTHING*** inside the `.pub` file to your clipboard.
 
 Login to the HPC clsuter via web dashboard (https://172.25.138.10:1111/pun/sys/dashboard).
 
-From the web dashboard, click on the DUKE-NUS HPC Shell access button.
+From the web dashboard, click on the `DUKE-NUS HPC Shell Access` button.
 
-In the now opened shell/terminal, type 
+In the now-opened shell/terminal, type 
 ```
 vim .ssh/authorized_keys
 ```
 In `vim`, type "i", start a new line and paste the contents of the .pub file you just copied using Ctl-v.
 
-*Do not damage the existing key, and make sure your new key is all on one line.*
+*Do not damage the existing key(s), and make sure your new key is all on one (new) line.*
 
 After pasting, hit and release the "Esc" key to exit insert mode in `vim`,
 and then type "ZZ" to save and exit.
@@ -120,6 +120,6 @@ your local desktop, *provided your local desktop is running an X11 server*.
 #### 6. What can go wrong
 
 If you have different command shells on the local desktop (e.g. `mobaxterm` and e.g. the terminal window
-in `Rstudio`, they will probably have different locations for their respective `.ssh\` folders. If so, you need
+in `Rstudio`), they will probably have different locations for their respective `.ssh\` folders. If so, you need
 make sure the priviate keys and `config` files are the same in the different `.ssh\` folder.
 
