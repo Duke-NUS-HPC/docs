@@ -44,8 +44,8 @@ mv id_rsa.pub hpc_rsa.pub
 #### 2. Check the output from `ssh-keygen`
 
 Check that your .`ssh` folder has the 2 generated key files. I named mine `hpc_rsa`. 
-You need `hpc_rsa` for the config file on your local desktop,
-and `hpc_rsa.pub` for the HPC.
+You need the name `hpc_rsa` for the config file on your local desktop,
+and you need the contents of `hpc_rsa.pub` for the HPC.
 
 ```
 ls -lh .ssh
@@ -73,7 +73,7 @@ Host hpc
 HostName 172.25.138.10
 User <your_NUS_ID>
 ForwardX11 yes
-IdentityFile /home/<your_local_user_id>/.ssh/test
+IdentityFile /home/<your_local_user_id>/.ssh/hpc_rsa
 ```
 
 #### 4. Put your public key on the HPC cluster
