@@ -2,6 +2,6 @@
 
 ## [Set up ssh key pairs for loging into the cluster](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
 
-## [Run PyCharm](https://github.com/Duke-NUS-HPC/docs/blob/main/start-pycharmr.md) 
+## [Run PyCharm](https://github.com/Duke-NUS-HPC/docs/blob/main/start-pycharm.md) 
 
 (PyCharm is like Rstudio for Python.)
