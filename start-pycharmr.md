@@ -1,4 +1,4 @@
-# Run Pycharm on HPC Cluster
+# Run PyCharm on HPC Cluster
 
 I use pycharm for debugging python modules under specific pre-built python environments (environment name is shown as 3.8 @ ubuntu at the right corner). Sometimes I directly submit jobs in the pycharm terminal, which is linked to what node I am current in.
 
