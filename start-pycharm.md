@@ -1,13 +1,12 @@
 # Run PyCharm on HPC Cluster
 
-I use pycharm for debugging python modules under specific pre-built python environments. I can directly submit jobs in the pycharm terminal and python console, which is linked to what node I am current in.
+I use pycharm for debugging python modules under specific pre-built python environments. I directly submit jobs in the pycharm terminal and python console, which runs on the
+cluster node on which I am running PyCharm.
 
-- [Set up X11 forwarding, then ssh to the cluster login node](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
+1. [ssh to the cluster login node from a command shell](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
 
 
-- Get an interactive shell with X11 forwarding on a GPU node by submitting a PBS job
-
-  1. Once logged in to the cluster login node, submit a PBS job request on `workq` with `-IX` parameters and resources needed
+1. Once you are on the login node, open an interactive shell with X11 forwarding on a GPU node by submitting a PBS job with `qsub`:
 
      `qsub -IX -l select=1:ncpus=1:mem=2G:ngpus=1 -l walltime=60 -q workq`
 
@@ -21,6 +20,6 @@ I use pycharm for debugging python modules under specific pre-built python envir
 
      [PBS quickstart](https://help.nscc.sg/pbspro-quickstartguide/) and [quick reference](https://help.nscc.sg/wp-content/uploads/2016/08/PBS_Professional_Quick_Reference.pdf)
 
-  2. job request will let me us a shell on the GPU node
+    Then PBS will give you an interactive shell on a GPU node (because of `ngpus=1`. If you do not need a GPU, use `ngpus=0`
 
-- Open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
+1. Open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
