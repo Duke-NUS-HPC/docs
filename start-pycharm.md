@@ -1,4 +1,4 @@
-# Run PyCharm on HPC Cluster
+# Start an interactive job with X11 windows on the HPC cluster; PyCharm example
 
 I use pycharm for debugging python modules under specific pre-built python environments. I directly submit jobs in the pycharm terminal and python console, which runs on the
 cluster node on which I am running PyCharm.
@@ -22,4 +22,4 @@ cluster node on which I am running PyCharm.
 
     Then PBS will give you an interactive shell on a GPU node (because of `ngpus=1`. If you do not need a GPU, use `ngpus=0`
 
-1. Open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
+1. If you have PyCharm installed in your home directory, then open pycharm: `~/pycharm-2021.3.2/bin/pycharm.sh`
