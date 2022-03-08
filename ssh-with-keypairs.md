@@ -9,15 +9,15 @@ See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzb
 
 Or you can login from a command shell:
 
-`ssh -X nusstf\\gmsfoo@172.23.138.10`
+`ssh -X nusstf\\gmsfoo@172.25.138.10`
 
 for staff and
 
-`ssh -X nusstu\\e999999@172.23.138.10`
+`ssh -X nusstu\\e999999@172.25.138.10`
 
 for students and
 
-`ssh -X nusext\\gmv999@172.23.138.10`
+`ssh -X nusext\\gmv999@172.25.138.10`
 
 for visitor accounts.
 
