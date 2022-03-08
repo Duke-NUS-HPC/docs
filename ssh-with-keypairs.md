@@ -1,6 +1,30 @@
 ## ssh to the Duke-NUS Office of Research HPC cluster using key pairs
 
-26 February 2022
+8 March 2022
+
+### Most people will not need this
+
+Most people can just login in from the dashboard (https://172.25.138.10:1111/pun/sys/dashboard)...
+
+or from a command shell:
+
+`ssh -X nusstf\\gmsfoo@172.23.138.10`
+
+for staff and
+
+`ssh -X nusstu\\e999999@172.23.138.10`
+
+for students and
+
+`ssh -X nusext\\gmv999@172.23.138.10`
+
+for visitor accounts.
+
+The `-X` is for X windows forwarding.
+
+***Remember, you have to be on an NUS network, which can be the NUS VPN***
+
+### Using Key pairs
 
 It is hard to provide absolutely bullet-proof instructions for this because of variation
 across different setups. If you have problems, contact Steve at gmssgr@nus.edu.sg.
