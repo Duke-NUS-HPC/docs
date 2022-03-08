@@ -4,9 +4,10 @@
 
 ### Most people will not need this
 
-Most people can just login in from the dashboard (https://172.25.138.10:1111/pun/sys/dashboard)...
+Most people can just login in from the dashboard. 
+See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzbFGQ/edit.
 
-or from a command shell:
+Or you can login from a command shell:
 
 `ssh -X nusstf\\gmsfoo@172.23.138.10`
 
