@@ -31,7 +31,7 @@ Output from ssh-keygen: Generating public/private rsa key pair.
 Prompt from ssh-keygen and your input: Enter the  name of the file in which to save the key (/home/willie/.ssh/id_rsa): <hit return>
 ```
 
-Enter a passphrase to prevent unauthorized users fro accessing the HPC cluster using this key.
+Enter a passphrase to prevent unauthorized users from accessing the HPC cluster using this key.
 
 ```
 Prompt from ssh-keygen and your response: Enter passphrase (empty for no passphrase): mypassphrase
