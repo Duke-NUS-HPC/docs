@@ -27,17 +27,19 @@ The `-X` is for X windows forwarding.
 
 ***Remember, you cannot ssh to compute (CPU) or GPU nodes directly; you need to use gsub -I***
 
+You can login to the head node from local desktops / laptops on the Duke-NUS network or 
+from the login nodes of the old HPC cluster.
+
+(You cannot ssh from PI's private servers due to current firewall settings.)
+
+
 ### Using Key pairs
 
 It is hard to provide absolutely bullet-proof instructions for this because of variation
 across different setups. If you have problems, contact Steve at gmssgr@nus.edu.sg.
 
-These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluster
+These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluste
 
-Currently, login to the head node is enabled from local desktops within the Duke-NUS network or the 
-the login nodes of the old HPC cluster.
-
-You cannot ssh from PI's private servers due to current firewall settings.
 
 ### Steps
 
