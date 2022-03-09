@@ -16,7 +16,7 @@ https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md
 It is hard to provide absolutely bullet-proof instructions for this because of variation
 across different setups. If you have problems, contact Steve at gmssgr@nus.edu.sg.
 
-These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluste
+These are the steps for ssh key-pair generation to log in to the Duke-NUS HPC cluster
 
 
 ### Steps
