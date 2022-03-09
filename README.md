@@ -2,7 +2,9 @@
 
 ## [Set up ssh key pairs for loging into the cluster](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
 
-## [Run PyCharm](https://github.com/Duke-NUS-HPC/docs/blob/main/start-pycharm.md) 
+## [Start an interactive job with X11 windows](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
+
+## [Start an interactive job with X11 windows; PyCharm example](https://github.com/Duke-NUS-HPC/docs/blob/main/start-pycharm.md) 
 
 (PyCharm is like Rstudio for Python.)
 
