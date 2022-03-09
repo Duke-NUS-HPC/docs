@@ -9,6 +9,8 @@ See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzb
 
 or from a command shell with password authentication
 
+https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md
+
 ### If you really want to use Key pairs
 
 It is hard to provide absolutely bullet-proof instructions for this because of variation
