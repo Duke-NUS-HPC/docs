@@ -8,8 +8,6 @@ See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzb
 
 ### If you want to log in from an command shell
 
-Or you can login from a command shell:
-
 `ssh -X nusstf\\gmsfoo@172.25.138.10`
 
 for staff and
