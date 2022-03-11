@@ -11,7 +11,7 @@ an X windows server running on your local machine.
 
 1. Once you are on the login node, open an interactive shell with X11 forwarding on a GPU node by submitting a PBS job with `qsub`:
 
-     `qsub -IX -l select=1:ncpus=1:mem=2G:ngpus=10 -l walltime=6000 -q workq`
+     `qsub -IX -l select=1:ncpus=10:mem=10G:ngpus=1 -l walltime=6000 -q workq`
 
      `-IX`: submitting an interactive job with X forwarding
 
