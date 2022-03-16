@@ -96,7 +96,7 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
 5. Enter singularity container
 
     `singularity exec $image bash` 
-7. Add singularity kernel to jupyter python environment, <env_name> can be anything customized.
+7. Add singularity kernel to jupyter python environment, <env_name> can be anything customized. (this is a one-time setting)
 
     `ipython kernel install --name <env_name> --user`
 7. Exit the container by typing `exit`
