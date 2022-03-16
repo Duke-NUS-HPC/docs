@@ -11,3 +11,5 @@
 
 ## [Install tensorflow-gpu](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu.md)
 
+## [Use singularity container in PyCharm and Jupyter Notebook](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md)
+(pre-installed packages including tensorflow-gpu=2.8 and torch=1.11 is provided)
