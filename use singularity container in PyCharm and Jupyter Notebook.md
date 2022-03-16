@@ -48,9 +48,9 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
 
 ***Replace following `$image` with `/data/rozen/home/e0833634/py38_cuda11-4-4_nodriver_cudnn8-2-4_tf-gpu2-8-0_ubuntu18-04.sif` <br>***
 ## Optional: Install new packages
-1. login hpc via dashboard or ssh
+1. Login hpc via dashboard or ssh
 2. `module load singularity` 
-4. enter singularity container
+4. Enter singularity container
 
     `singularity exec $image bash` 
 3. New packages can be installed via `python3.8 -m pip install xxxx` in the singularity shell. Packages will be installed in the host home directory within folder `.local/bin/`.<br>
@@ -58,10 +58,10 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
 5. Please **don't install conda**<br>
 
 ## Use singularity container in PyCharm
-1. login hpc with ssh -X
+1. Login hpc with ssh -X
 2. `qsub` an interactive job with `-X` forwarding, allocate necessary resources. [Instructions](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
 3. `module load singularity` 
-4. enter singularity container
+4. Enter singularity container
     
     `singularity exec $image bash` 
     
@@ -83,17 +83,24 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
     
     should return `2.8.0`
 
-## Use singularity container in jupyter lab/jupyter notebook
-1. login hpc via dashboard or ssh
+## Use singularity container in jupyter lab/jupyter notebook (all notebook listed below can be switched to lab)
+1. Login hpc via dashboard or ssh
 2. `module load singularity` 
-3. set up passwords for forwarded jupyter notebook window
+3. Set up passwords for forwarded jupyter notebook window
     
     `singularity exec $image jupyter notebook --generate-config`
     
     `singularity exec $image jupyter notebook password`
     
 4. `qsub` an interactive job with `-X` forwarding, allocate necessary resources. [Instructions](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
-5. enter singularity container
+5. Enter singularity container
+
+    `singularity exec $image bash` 
+7. Add singularity kernel to jupyter python environment, <env_name> can be anything customized.
+
+    `ipython kernel install --name <env_name> --user`
+7. Exit the container by typing `exit`
+8. Start to open jupyter notebook
     
     `singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`
     
@@ -106,7 +113,8 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
     `ssh -L 8888:targethost:8889 nusstu\\xxxx@172.25.138.10` 
     
 7. On local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8888`. Enter password.
-8. Open a new python script and test with:
+8. Switch to singularity kernel within jupyter notebook.
+9. Open a new python script and test with:
     ```python
     import tensorflow as tf
     print(tf.__version__)
