@@ -38,6 +38,7 @@ transformers==4.17.0
 - do some natural languages processing trainings
 - maximize the utilization of NVIDIA A100 40GB GPU (which cannot be accelerated with tensorflow-gpu==2.2.0)
 - explore singularity
+- running batch jobs
 
 ## Why should not use this container
 - your scripts can run within conda environment without dependency issues
