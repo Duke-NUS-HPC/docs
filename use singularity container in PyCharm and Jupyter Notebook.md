@@ -5,11 +5,11 @@ Once entered the container, the system recognized two home paths: one for pre-in
 
 More information for [Singularity](https://github.com/sylabs/singularity)
 
-Current available container contains packages listed below.
+Current available container (python=3.8) contains packages listed below.
 ```
 tensorflow-gpu==2.8.0
 tensorboard==2.8.0
-torch==1.11.0
+torch==1.11.0+cu113
 bert-tensorflow==1.0.4
 biopython==1.79
 flair==0.10
@@ -22,23 +22,29 @@ jupyter
 jupyterlab
 louvain==0.7.1
 matplotlib==3.5.1
-nltk==3.7
+nltk==3.7.0
 numpy==1.21.5
 pandas==1.4.1
-pattern3==3.0.0
+pattern3==2.6
 scikit-learn==1.0.2
 scipy==1.8.0
 scanpy==1.8.2
 seaborn==0.11.2
 umap-learn==0.5.2
 transformers==4.17.0
+accelerate==0.5.1
+dm-sonnet==2.0.0
+kipoiseq==0.5.2
+tensorflow-hub==0.12.0
+anndata==0.8.0
+scikit-multilearn
 ```
 ## Why should use this container
 - need most up-to-date version of most packages but don't want to solve pip dependencies
 - do some natural languages processing trainings
 - maximize the utilization of NVIDIA A100 40GB GPU (which cannot be accelerated with tensorflow-gpu==2.2.0)
 - explore singularity
-- running batch jobs
+- run batch jobs
 
 ## Why should not use this container
 - your scripts can run within conda environment without dependency issues
@@ -47,16 +53,17 @@ Related resources for how to [set up conda environment for jupyter notebook](htt
 and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu.md)
 
 
-***Replace following `$image` with `/data/rozen/home/e0833634/py38_cuda11-4-4_nodriver_cudnn8-2-4_tf-gpu2-8-0_ubuntu18-04.sif` <br>***
+***Replace following `$image` with `/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif` (15G)<br>***
 ## Optional: Install new packages
 1. Login hpc via dashboard or ssh
 2. `module load singularity` 
 4. Enter singularity container
 
     `singularity exec $image bash` 
-3. New packages can be installed via `python3.8 -m pip install xxxx` in the singularity shell. Packages will be installed in the host home directory within folder `.local/bin/`.<br>
+3. New packages can be installed via `python3.8 -m pip install xxxx` in the singularity shell. Packages will be installed in the host home directory within folder `.local/bin/` or `.local/bin/python3.8/site-packages`.<br>
    However, these newly installed packages cannot be distributed to others together with the container.
 5. Please **don't install conda**<br>
+6. All python commands in bash or in batch jobs should start with **python3.8** instead of **python**.
 
 ## Use singularity container in PyCharm
 1. Login hpc with ssh -X
@@ -87,7 +94,7 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
 ## Use singularity container in jupyter lab/jupyter notebook (all notebook listed below can be switched to lab)
 1. Login hpc via dashboard or ssh
 2. `module load singularity` 
-3. Set up passwords for forwarded jupyter notebook window
+3. Set up passwords for forwarded jupyter notebook window (this is a one-time setting)
     
     `singularity exec $image jupyter notebook --generate-config`
     
@@ -123,3 +130,22 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
     
     should return `2.8.0`
     
+10. Test wether using GPU
+
+```
+import torch
+torch.cuda.is_available()
+>>> True
+
+torch.cuda.current_device()
+>>> 0
+
+torch.cuda.device(0)
+>>> <torch.cuda.device at 0x7efce0b03be0>
+
+torch.cuda.device_count()
+>>> 1
+
+torch.cuda.get_device_name(0)
+>>> 'NVIDIA A100-PCIE-40GB'
+```
