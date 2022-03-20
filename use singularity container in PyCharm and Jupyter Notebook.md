@@ -5,7 +5,7 @@ Once entered the container, the system recognized two home paths: one for pre-in
 
 More information for [Singularity](https://github.com/sylabs/singularity)
 
-Current available container (python=3.8) contains packages listed below.
+Current available containers (python=3.8) contains packages listed below.
 ```
 tensorflow-gpu==2.8.0
 tensorboard==2.8.0
@@ -32,13 +32,31 @@ scanpy==1.8.2
 seaborn==0.11.2
 umap-learn==0.5.2
 transformers==4.17.0
-accelerate==0.5.1
+accelerate==0.6.1
 dm-sonnet==2.0.0
 kipoiseq==0.5.2
 tensorflow-hub==0.12.0
 anndata==0.8.0
 scikit-multilearn
 ```
+They are built with different environments.
+- ***py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif***
+     ```
+    cudatoolkit=11.4.2
+    cudnn=8.2.4.15
+    tensorRT=8.2.3
+    ubuntu 18.04
+    python 3.8
+    ```
+- ***py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu20-04.sif***
+    ```
+    cudatoolkit=11.4.2
+    cudnn=8.3.3.40
+    tensorRT=8.2.3
+    ubuntu 20.04
+    python 3.8
+    ```
+    cudnn 8.3.x is optimized for transformer-based models.
 ## Why should use this container
 - need most up-to-date version of most packages but don't want to solve pip dependencies
 - do some natural languages processing trainings
@@ -53,7 +71,7 @@ Related resources for how to [set up conda environment for jupyter notebook](htt
 and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu.md)
 
 
-***Replace following `$image` with `/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif` (15G)<br>***
+***Replace following `$image` with the container needed, example: `/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif` (15G)<br>***
 
 Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-4b9d-a6f4-f97e56bbd840?l
 ## Optional: Install new packages
