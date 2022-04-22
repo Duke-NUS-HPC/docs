@@ -24,7 +24,7 @@ The `-X` is for X windows forwarding.
 
 ***Remember, you have to be on an NUS network, which can be the NUS VPN***
 
-***Remember, you cannot ssh to compute (CPU) or GPU nodes directly; you need to use gsub -I***
+***Remember, you cannot ssh to compute (CPU) or GPU nodes directly; you need to use qsub -I***
 
 You can login to the head node from local desktops / laptops on the Duke-NUS network or 
 from the login nodes of the old HPC cluster.
