@@ -2,14 +2,16 @@
 
 Because only the login node has access to the internet, it is necessary to do an extra step to install R packages in your personal R library.
 
-You need to be at a command shell on the login node, `172.25.138.10`, also known as `login-10-03`.
+You need to be at a command shell on the login node, `172.25.138.10`, also known as `login-10-03` or `compute03`.
 
 If for some reason you are not on `login-10-03`, you can do 
 
 ```
 module load pbspro
-qsub -I XXXXXX <not sure what goes here>
+qsub -I -l select=1:ncpus=1:mem=10G:ngpus=0:vnode=computeg03 -l walltime=7200 -q workq
 ```
+
+You will then get a shell on the login node.
 
 On the login node, enter the following:
 
