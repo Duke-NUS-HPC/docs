@@ -8,10 +8,10 @@ If for some reason you are not on `login-10-03`, you can do
 
 ```
 module load pbspro
-qsub -I 
+qsub -I XXXXXX <not sure what goes here>
 ```
 
-Enter the following:
+On the login node, enter the following:
 
 ```
 module load r
