@@ -1,4 +1,4 @@
-# Install tensorflow-gpu
+# Install tensorflow-gpu via conda
 
 - **do not pip install tensorflow**, for tensoflow version > 2.2.0, please use the [singularity container](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md).
 
