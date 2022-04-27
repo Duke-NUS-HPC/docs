@@ -36,6 +36,8 @@ libary(tinytest)
 q()
 ```
 
+(If you  `qsub`'ed to the login node, exit now.)
+
 Then make sure that the package `tinytest` is also visibible in RStudio
 by opening an RStudio session and trying to load it.
 
