@@ -9,7 +9,7 @@
 
 ## [Add customized conda environment to jupyter notebook kernel](https://github.com/Duke-NUS-HPC/docs/blob/main/Add%20customized%20conda%20environment%20to%20jupyter%20notebook%20kernel.md)
 
-## [Install tensorflow-gpu](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu.md)
+## [Install tensorflow-gpu via conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu%20via%20conda.md)
 
 ## [Use singularity container in PyCharm and Jupyter Notebook](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md)
 (pre-installed packages including tensorflow-gpu=2.8 and torch=1.11 are provided)
