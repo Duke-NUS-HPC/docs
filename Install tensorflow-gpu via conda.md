@@ -1,6 +1,6 @@
 # Install tensorflow-gpu
 
-- recommend to install via **conda** only
+- **do not pip install tensorflow**, for tensoflow version > 2.2.0, please use the [singularity container](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md).
 
 - build a conda environment with python version ≥ 3.7
 
@@ -44,7 +44,7 @@
 
     - type `!nvidia-smi`. Should have the following results displayed.
 
-    ![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/71da8b18-dfbf-4f77-9d51-2dfdfabab02a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220301%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220301T061708Z&X-Amz-Expires=86400&X-Amz-Signature=d3d0baa7ac52f7b11b73ace99d82d58ec0c5f72347ff095bf28d4166084c912e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+    ![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/71da8b18-dfbf-4f77-9d51-2dfdfabab02a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220427%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220427T101341Z&X-Amz-Expires=86400&X-Amz-Signature=f6062c63e6b64a3b4d8906e06f5e76bbe45f397c7f31b7312015a4eb02e479b0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 - check if tensorflow can access gpu
 
@@ -55,7 +55,7 @@ if not tf.config.list_physical_devices('GPU'):
     print("No GPU was detected.")
 ```
 
-![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2c606e3d-f99f-4b01-a456-677c9b874d98/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220301%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220301T061957Z&X-Amz-Expires=86400&X-Amz-Signature=b8febd8bb17a51cd6f5d3c953a6cc7415269047835d673454399fc91bc2612da&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2c606e3d-f99f-4b01-a456-677c9b874d98/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220427%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220427T101401Z&X-Amz-Expires=86400&X-Amz-Signature=648ba171126b3e39f7857468f316e600a810f7c5372c775ae97cdc7c6e9276f9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 - `Adding visible gpu devices: 0` is expected. Since in python, indexing start from 0.
-- For specific tensorflow-gpu version other than those listed in conda distribution and specific version of cuda toolkit support, please contact admin for installation.
+
