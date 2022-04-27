@@ -21,7 +21,7 @@ install.packages("tinytest", lib = "/data/<yourgroup>/home/<your user id>/R/rstu
 libary(tinytest)
 ```
 
-Then make sure it the package `tinytest` is visibible in RStudio.
+Then make sure that the package `tinytest` is visibible in RStudio.
 
 
 If you find problems with the documentation email steverozen@pm.me.
