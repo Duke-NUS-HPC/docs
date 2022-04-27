@@ -2,7 +2,7 @@
 
 Because only the login node has access to the internet, it is necessary to do an extra step to install R packages in your personal R library.
 
-You need to be at a command shell on the login node, `172.25.138.10`.
+You need to be at a command shell on the login node, `172.25.138.10`, also known as `login-10-03`.
 
 Enter the following:
 
