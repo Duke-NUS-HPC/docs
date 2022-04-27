@@ -25,12 +25,14 @@ To test the setup, we will use a test package, `tinytest`
 At the R command prompt, enter
 
 ```
-install.packages("tinytest", lib = "/data/<yourgroup>/home/<your user id>/R/rstudio/4.1")
+install.packages("tinytest", lib = "~/R/rstudio/4.1") 
+# 4.1 will change as we move to new R versions
 # test that it worked
 libary(tinytest)
+q()
 ```
 
-Then make sure that the package `tinytest` is visibible in RStudio.
+Then make sure that the package `tinytest` is also visibible in RStudio.
 
 
 If you find problems with the documentation email steverozen@pm.me.
