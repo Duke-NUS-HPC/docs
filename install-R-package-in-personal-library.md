@@ -4,6 +4,13 @@ Because only the login node has access to the internet, it is necessary to do an
 
 You need to be at a command shell on the login node, `172.25.138.10`, also known as `login-10-03`.
 
+If for some reason you are not on `login-10-03`, you can do 
+
+```
+module load pbspro
+qsub -I 
+```
+
 Enter the following:
 
 ```
