@@ -10,6 +10,7 @@ If for some reason you are not on `login-10-03`, you can do
 module load pbspro
 qsub -I -l select=1:ncpus=1:mem=10G:ngpus=0:vnode=computeg03 -l walltime=7200 -q workq
 ```
+(Note that `-l` is minus lower-case L.)
 
 You will then get a shell on the login node.
 
