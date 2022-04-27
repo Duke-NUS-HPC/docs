@@ -169,4 +169,52 @@ torch.cuda.device_count()
 torch.cuda.get_device_name(0)
 >>> 'NVIDIA A100-PCIE-40GB'
 ```
+## Batch job submission
+1. For testing
+```
+#!/bin/sh
+#PBS -N your_job_namee
+#PBS -q workq
+#PBS -l walltime=432000
+#PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
+#PBS -j oe
+
+HOME_LOC=/data/pi_name/home/your_id
+touch $PBS_O_WORKDIR/logs/test_load_container.log
+echo $PBS_O_WORKDIR >>$PBS_O_WORKDIR/logs/tensorflow_cmd.log
+cd $PBS_O_WORKDIR
+image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif"
+module load singularity
+printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/test_load_container.log
+
+singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+
+python3.8 -c "import pandas as pd; print(pd.__version__)" > $PBS_O_WORKDIR/logs/test.log 2>&1
+
+printf "finish testing container\n" >>$PBS_O_WORKDIR/logs/test_load_container.log
+
+EOF
+```
+2. Batch job script example `job.sh`
+```
+#!/bin/sh
+#PBS -N your_job_namee
+#PBS -q workq
+#PBS -l walltime=432000
+#PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
+#PBS -j oe
+
+HOME_LOC=/data/pi_name/home/your_id
+cd $PBS_O_WORKDIR
+image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif"
+module load singularity
+
+singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+
+python3.8 yourscript.py > $PBS_O_WORKDIR/your_logs/your_log.log 2>&1
+
+EOF
+```
+3. submit job with `qsub job.sh`
+
 ***For questions, please email yzhang@u.duke.nus.edu***
