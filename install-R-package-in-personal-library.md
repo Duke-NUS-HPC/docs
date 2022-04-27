@@ -23,7 +23,7 @@ R # Start R
 
 To test the setup, we will use a test package, `tinytest`.  
 
-Later, once you have confirmed that you setup is workkng, you can replace
+Later, once you have confirmed that you setup is workng, you can replace
 tinytest with the packages of your choice.
 
 At the R command prompt, enter
