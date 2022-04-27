@@ -1,4 +1,4 @@
-# How to install R pacakges in your personal R library
+# How to install R packges in your personal R library
 
 Because only the login node has access to the internet, it is necessary to do an extra step to install R packages in your personal R library.
 
@@ -13,14 +13,17 @@ qsub -I -l select=1:ncpus=1:mem=10G:ngpus=0:vnode=computeg03 -l walltime=7200 -q
 
 You will then get a shell on the login node.
 
-On the login node, enter the following:
+On the login node, enter the following at the linux shell:
 
 ```
 module load r
 R # Start R
 ```
 
-To test the setup, we will use a test package, `tinytest`
+To test the setup, we will use a test package, `tinytest`.  
+
+Later, once you have confirmed that you setup is workkng, you can replace
+tinytest with the packages of your choice.
 
 At the R command prompt, enter
 
@@ -32,7 +35,8 @@ libary(tinytest)
 q()
 ```
 
-Then make sure that the package `tinytest` is also visibible in RStudio.
+Then make sure that the package `tinytest` is also visibible in RStudio
+by opening an RStudio session and trying to load it.
 
 
 If you find problems with the documentation email steverozen@pm.me.
