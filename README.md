@@ -1,4 +1,5 @@
 # Documents for the Duke-NUS Office of Research HPC Cluster
+Discord for questions: https://discord.gg/eZntxgUyav
 
 ## [ssh to the cluster login node](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md)
 
