@@ -7,6 +7,8 @@
 
 ## [Set up ssh key pairs for loging into the cluster](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
 
+## [How to install R packges in your personal R library](https://github.com/Duke-NUS-HPC/docs/blob/main/install-R-package-in-personal-library.md)
+
 ## [Add customized conda environment to jupyter notebook kernel](https://github.com/Duke-NUS-HPC/docs/blob/main/Add%20customized%20conda%20environment%20to%20jupyter%20notebook%20kernel.md)
 
 ## [Install tensorflow-gpu via conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu%20via%20conda.md)
