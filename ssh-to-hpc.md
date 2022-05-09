@@ -8,6 +8,8 @@ See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzb
 
 ### If you want to log in from an command shell
 
+#### MacOS:
+
 `ssh -X nusstf\\gmsfoo@172.25.138.10`
 
 for staff and
@@ -21,6 +23,20 @@ for students and
 for visitor accounts.
 
 The `-X` is for X windows forwarding.
+
+#### Windows:
+
+`ssh nusstf\gmsfoo@172.25.138.10`
+
+for staff and
+
+`ssh nusstu\e999999@172.25.138.10`
+
+for students and
+
+`ssh nusext\gmv999@172.25.138.10`
+
+for visitor accounts.
 
 ***Remember, you have to be on an NUS network, which can be the NUS VPN***
 
