@@ -85,32 +85,6 @@ Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-
 5. Please **don't install conda**<br>
 6. All python commands in bash or in batch jobs should start with **python3.8** instead of **python**.
 
-## Use singularity container in PyCharm
-1. Login hpc with ssh -X
-2. `qsub` an interactive job with `-X` forwarding, allocate necessary resources. [Instructions](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
-3. `module load singularity` 
-4. Enter singularity container
-    
-    `singularity exec $image bash` 
-    
-    can add `--nv` flag to monitor GPU usage
-    
-5. Open PyCharm
-    
-    `~/pycharm-2021.3.2/bin/pycharm.sh`
-    
-6. Select `Add Interpreter` on the right bottom corner
-7. Select  `system interpreter` or create `virtualenv environment` with the system interpreter. 
-  If the path is written as `/usr/bin/python3.8`, the correct interpreter is selected.
-9. Check if singularity container is used:
-
-    ```python
-    import tensorflow as tf
-    print(tf.__version__)
-    ```
-    
-    should return `2.8.0`
-
 ## Use singularity container in jupyter lab/jupyter notebook (all notebook listed below can be switched to lab)
 1. Login hpc via dashboard or ssh
 2. `module load singularity` 
@@ -120,7 +94,6 @@ Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-
     
     `singularity exec $image jupyter notebook password`
     
-4. `qsub` an interactive job with `-X` forwarding, allocate necessary resources. [Instructions](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
 5. Enter singularity container
 
     `singularity exec $image bash` 
@@ -128,17 +101,40 @@ Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-
 
     `ipython kernel install --name <env_name> --user`
 7. Exit the container by typing `exit`
-8. Start to open jupyter notebook
+8. **must use batch job script to initiate a window for jupyter notebook, as job scheduler other than workq no longer support interactive jobs** 
+9. **deprecated as job scheduler other than workq no longer support interactive jobs** ~~Start to open jupyter notebook~~
     
-    `singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`
+    ~~`singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`~~
     
-    `port` number can be changed to any other number except 8888 if other people are using the same port. example: 8999
+    `port` number can be changed to any other number except 8888 if other people are using the same port. example: 8889
     
-    can add `--nv` flag to monitor GPU usage
+    can add `--nv` flag to monitor GPU usage<br/>
+    
+    ## **alternative job.sh**
+```
+#!/bin/sh
+#PBS -N yourjobname
+#PBS -q workq
+#PBS -l walltime=432000
+#PBS -l select=1:ncpus=9:mem=10gb:ngpus=0
+
+HOME_LOC=/data/rozen/home/e0833634/whatever
+cd $PBS_O_WORKDIR
+image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu20-04.sif"
+module load singularity
+printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/tensorflow_cmd.log
+
+singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 << EOF
+
+EOF
+```
+submit an batch job with x-forwarding: `qsub -V job.sh`
     
 6. On local computer, open a **new Mobaxterm tab** with:
     
-    `ssh -L 8888:targethost:8889 nusstu\\xxxx@172.25.138.10` 
+    `ssh -L 8888:host:8889 nusstu\\xxxx@172.25.138.10` 
+    
+    for `host` please check which node is assigned for the job unless specified with `vnode`
     
 7. On local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8888`. Enter password.
 8. Switch to singularity kernel within jupyter notebook.
@@ -169,6 +165,34 @@ torch.cuda.device_count()
 torch.cuda.get_device_name(0)
 >>> 'NVIDIA A100-PCIE-40GB'
 ```
+
+## Use singularity container in PyCharm
+1. Login hpc with ssh -X
+2. `qsub` an interactive job with `-X` forwarding, allocate necessary resources. [Instructions](https://github.com/Duke-NUS-HPC/docs/blob/main/start-interactive-shell-with-X11.md)
+3. `module load singularity` 
+4. Enter singularity container
+    
+    `singularity exec $image bash` 
+    
+    can add `--nv` flag to monitor GPU usage
+    
+5. Open PyCharm
+    
+    `~/pycharm-2021.3.2/bin/pycharm.sh`
+    
+6. Select `Add Interpreter` on the right bottom corner
+7. Select  `system interpreter` or create `virtualenv environment` with the system interpreter. 
+  If the path is written as `/usr/bin/python3.8`, the correct interpreter is selected.
+9. Check if singularity container is used:
+
+    ```python
+    import tensorflow as tf
+    print(tf.__version__)
+    ```
+    
+    should return `2.8.0`
+
+
 ## Batch job submission
 1. For testing
 ```
