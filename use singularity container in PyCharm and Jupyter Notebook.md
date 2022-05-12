@@ -73,7 +73,7 @@ and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/
 
 ***Replace following `$image` with the container needed, example: `/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif` (15G)<br>***
 
-Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-4b9d-a6f4-f97e56bbd840?l
+Distributed Version: https://mynbox.nus.edu.sg/u/nWpecHDqXlOPal5V/0ef6dd75-1755-4a6d-8b0f-836d9a0960ce?l
 ## Optional: Install new packages
 1. Login hpc via dashboard or ssh
 2. `module load singularity` 
@@ -102,7 +102,7 @@ Distributed Version: https://mynbox.nus.edu.sg/u/sbzETVw8xGyjvMRo/cf82ff0b-10b4-
     `ipython kernel install --name <env_name> --user`
 7. Exit the container by typing `exit`
 8. **must use batch job script to initiate a window for jupyter notebook, as job scheduler other than workq no longer support interactive jobs** 
-9. **deprecated as job scheduler other than workq no longer support interactive jobs** ~~Start to open jupyter notebook~~
+9. **deprecated in the future as job scheduler other than workq no longer support interactive jobs** ~~Start to open jupyter notebook~~
     
     ~~`singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`~~
     
