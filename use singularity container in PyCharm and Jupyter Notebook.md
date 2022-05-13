@@ -115,7 +115,7 @@ Distributed Version: https://mynbox.nus.edu.sg/u/nWpecHDqXlOPal5V/0ef6dd75-1755-
 #!/bin/sh
 #PBS -N yourjobname
 #PBS -q workq
-#PBS -l walltime=432000
+#PBS -l walltime=6000
 #PBS -l select=1:ncpus=9:mem=10gb:ngpus=0
 
 HOME_LOC=/data/rozen/home/e0833634/whatever
@@ -199,7 +199,7 @@ torch.cuda.get_device_name(0)
 #!/bin/sh
 #PBS -N your_job_namee
 #PBS -q workq
-#PBS -l walltime=432000
+#PBS -l walltime=6000
 #PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
 #PBS -j oe
 
@@ -224,7 +224,7 @@ EOF
 #!/bin/sh
 #PBS -N your_job_namee
 #PBS -q workq
-#PBS -l walltime=432000
+#PBS -l walltime=6000
 #PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
 #PBS -j oe
 
