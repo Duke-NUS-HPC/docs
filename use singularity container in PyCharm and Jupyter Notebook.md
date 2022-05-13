@@ -84,6 +84,7 @@ Distributed Version: https://mynbox.nus.edu.sg/u/nWpecHDqXlOPal5V/0ef6dd75-1755-
    However, these newly installed packages cannot be distributed to others together with the container.
 5. Please **don't install conda**<br>
 6. All python commands in bash or in batch jobs should start with **python3.8** instead of **python**.
+7. For those who need `torch_geometric.nn` [info](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html), you can install within the container via `python3.8 -m pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.11.0+cu113.html`
 
 ## Use singularity container in jupyter lab/jupyter notebook (all notebook listed below can be switched to lab)
 1. Login hpc via dashboard or ssh
