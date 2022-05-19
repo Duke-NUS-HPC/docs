@@ -14,5 +14,5 @@ Discord for questions: https://discord.gg/eZntxgUyav
 
 ## [Install tensorflow-gpu via conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu%20via%20conda.md)
 
-## [Use singularity container in PyCharm and Jupyter Notebook](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md)
+## [Use GPU enabled singularity container in PyCharm and Jupyter Notebook](https://github.com/Duke-NUS-HPC/docs/blob/main/use%20singularity%20container%20in%20PyCharm%20and%20Jupyter%20Notebook.md)
 (pre-installed packages including tensorflow-gpu=2.8 and torch=1.11 are provided)
