@@ -3,10 +3,15 @@
 A lot of Linux / Unix program use X windows. We need a program running
 on a cluster node to pop up a window on your local desktop or laptop.
 
-1. [ssh to the cluster login node from a command shell](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-with-keypairs.md)
+1. [ssh to the cluster login node from a command shell](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md)
 
 Make sure you used the `-X` flag in `ssh` and make sure you have
 an X windows server running on your local machine.
+
+To allow a program on the cluster to open a window on your local computer
+(e.g. MS Windows PC or Mac or Linux) you need to have an "X Window" (X11) 
+server running on your local machine. This is automatic if you use 
+mobaxterm (PCs, https://mobaxterm.mobatek.net/) or Xquartz (Mac, https://www.xquartz.org/) terminals.
 
 
 1. Once you are on the login node, open an interactive shell with X11 forwarding on a GPU node by submitting a PBS job with `qsub`:
