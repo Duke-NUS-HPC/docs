@@ -64,7 +64,7 @@ They are built with different environments.
 - explore singularity
 - run batch jobs
 
-## Why should not use this container
+## Why may not need this container
 - your scripts can run within conda environment without dependency issues
 - your project does not rely heavily with GPU (run fast with conda distributed tensorflow-gpu already)<br>
 Related resources for how to [set up conda environment for jupyter notebook](https://github.com/Duke-NUS-HPC/docs/blob/main/Add%20customized%20conda%20environment%20to%20jupyter%20notebook%20kernel.md)
@@ -102,22 +102,24 @@ Distributed Version: https://mynbox.nus.edu.sg/u/nWpecHDqXlOPal5V/0ef6dd75-1755-
 
     `ipython kernel install --name <env_name> --user`
 7. Exit the container by typing `exit`
-8. **must use batch job script to initiate a window for jupyter notebook, as job scheduler other than workq no longer support interactive jobs** 
-9. **deprecated in the future as job scheduler other than workq no longer support interactive jobs** ~~Start to open jupyter notebook~~
+9. Two ways to open jupyter notebook
+- First way<br>
+     start an interactive job with `qsub -I`. Caution: interactive jobs are only applicable for `workq` and `gpu` queue.
     
-    ~~`singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`~~
+   `singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0`
     
     `port` number can be changed to any other number except 8888 if other people are using the same port. example: 8889
     
     can add `--nv` flag to monitor GPU usage<br/>
     
-    ## **alternative job.sh**
+- Second way: use alternative job.sh (can submit to any queue)
 ```
 #!/bin/sh
 #PBS -N yourjobname
 #PBS -q workq
 #PBS -l walltime=6000
 #PBS -l select=1:ncpus=9:mem=10gb:ngpus=0
+#PBS -koe
 
 HOME_LOC=/data/rozen/home/e0833634/whatever
 cd $PBS_O_WORKDIR
@@ -129,17 +131,17 @@ singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 <
 
 EOF
 ```
-submit an batch job with x-forwarding: `qsub -V job.sh`
+In the end, submit an batch job with x-forwarding: `qsub -V job.sh`
     
-6. On local computer, open a **new Mobaxterm tab** with:
+8. On local computer, open a **new Mobaxterm tab** with:
     
     `ssh -L 8888:host:8889 nusstu\\xxxx@172.25.138.10` 
     
     for `host` please check which node is assigned for the job unless specified with `vnode`
     
-7. On local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8888`. Enter password.
-8. Switch to singularity kernel within jupyter notebook.
-9. Open a new python script and test with:
+9. On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8888`. Enter password.
+10. Switch to singularity kernel within jupyter notebook.
+11. Open a new python script and test with:
     ```python
     import tensorflow as tf
     print(tf.__version__)
@@ -147,7 +149,7 @@ submit an batch job with x-forwarding: `qsub -V job.sh`
     
     should return `2.8.0`
     
-10. Test wether using GPU
+12. Test wether using GPU
 
 ```
 import torch
@@ -199,10 +201,10 @@ torch.cuda.get_device_name(0)
 ```
 #!/bin/sh
 #PBS -N your_job_namee
-#PBS -q workq
+#PBS -q gpu
 #PBS -l walltime=6000
 #PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
-#PBS -j oe
+#PBS -koe
 
 HOME_LOC=/data/pi_name/home/your_id
 touch $PBS_O_WORKDIR/logs/test_load_container.log
@@ -212,7 +214,7 @@ image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_
 module load singularity
 printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/test_load_container.log
 
-singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+singularity exec $image bash << EOF
 
 python3.8 -c "import pandas as pd; print(pd.__version__)" > $PBS_O_WORKDIR/logs/test.log 2>&1
 
@@ -224,17 +226,17 @@ EOF
 ```
 #!/bin/sh
 #PBS -N your_job_namee
-#PBS -q workq
+#PBS -q gpu
 #PBS -l walltime=6000
 #PBS -l select=1:ncpus=10:mem=100gb:ngpus=1
-#PBS -j oe
+#PBS -koe
 
 HOME_LOC=/data/pi_name/home/your_id
 cd $PBS_O_WORKDIR
 image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif"
 module load singularity
 
-singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+singularity exec $image bash << EOF
 
 python3.8 yourscript.py > $PBS_O_WORKDIR/your_logs/your_log.log 2>&1
 
