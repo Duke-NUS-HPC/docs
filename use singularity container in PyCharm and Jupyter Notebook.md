@@ -80,7 +80,7 @@ Distributed Version: https://mynbox.nus.edu.sg/u/nWpecHDqXlOPal5V/0ef6dd75-1755-
 4. Enter singularity container
 
     `singularity exec $image bash` 
-3. New packages can be installed via `python3.8 -m pip install xxxx` in the singularity shell. Packages will be installed in the host home directory within folder `.local/bin/` or `.local/bin/python3.8/site-packages`.<br>
+3. New packages can be installed via `python3.8 -m pip install xxxx` in the singularity shell. Packages will be installed in the host home directory within folder `.local/bin/` or `.local/lib/python3.8/site-packages`.<br>
    However, these newly installed packages cannot be distributed to others together with the container.
 5. Please **don't install conda**<br>
 6. All python commands in bash or in batch jobs should start with **python3.8** instead of **python**.
