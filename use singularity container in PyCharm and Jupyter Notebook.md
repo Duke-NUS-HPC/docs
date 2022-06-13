@@ -127,9 +127,9 @@ image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_
 module load singularity
 printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/tensorflow_cmd.log
 
-singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 << EOF
+singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
 
-EOF
+exit 0
 ```
 In the end, submit an batch job with x-forwarding: `qsub -V job.sh`
     
@@ -214,7 +214,7 @@ image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_
 module load singularity
 printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/test_load_container.log
 
-singularity exec $image bash << EOF
+singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
 
 python3.8 -c "import pandas as pd; print(pd.__version__)" > $PBS_O_WORKDIR/logs/test.log 2>&1
 
@@ -236,11 +236,12 @@ cd $PBS_O_WORKDIR
 image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu18-04.sif"
 module load singularity
 
-singularity exec $image bash << EOF
+singularity exec $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
 
 python3.8 yourscript.py > $PBS_O_WORKDIR/your_logs/your_log.log 2>&1
 
 EOF
+
 ```
 3. submit job with `qsub job.sh`
 
