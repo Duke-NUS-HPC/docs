@@ -66,11 +66,11 @@ tensorboard==2.9.1
 torch==1.11.0+cu113
 bert-tensorflow==1.0.4
 biopython==1.79
-flair==0.10
+flair==0.11.3
 h5py==3.6.0
 hmmlearn==0.2.7
 huggingface-hub==0.4.0
-igraph==0.9.9
+igraph==0.9.11
 keras==2.9.0
 jupyter
 jupyterlab
@@ -80,22 +80,23 @@ nltk==3.7.0
 numpy==1.22.4
 pandas==1.4.2
 pattern3==2.6
-scikit-learn==1.0.2
+scikit-learn==1.1.1
 scipy==1.8.1
-scanpy==1.8.2
+scanpy==1.9.1
 seaborn==0.11.2
+transformers==4.20.0
+tqdm==4.64.0
 umap-learn==0.5.2
-accelerate==0.6.1
+accelerate==0.10.0
 dm-sonnet==2.0.0
 kipoiseq==0.5.2
 tensorflow-hub==0.12.0
 anndata==0.8.0
-scikit-multilearn
-biotite
-fuzzywuzzy
-scvelo
+scikit-multilearn==0.2.0
+biotite==0.33.0
+fuzzywuzzy==0.18.0
 ```
-- ***py38_cuda11-6-2_nodriver_cudnn8-4-0_torch-1-11_tf-2-9-1_centos7.sif***
+- ***py38_cuda11-6-2_nodriver_cudnn8-4-0_torch-1-11_tf-2-9-1_centos7.sif*** (18G)
      ```
      cudatoolkit=11.6.2
      cudnn=8.4.0.27
@@ -103,6 +104,7 @@ scvelo
      CentOS 7
      python 3.8
      ```
+     ***need special trick to use this container, contact `enol` through discord if you need***
 ## Why should use this container
 - need most up-to-date version of most packages but don't want to solve pip dependencies
 - do some natural languages processing trainings
