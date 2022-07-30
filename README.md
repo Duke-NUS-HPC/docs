@@ -2,14 +2,17 @@
 Discord for questions: https://discord.gg/eZntxgUyav
 
 ## Queue information
-<pre>
-Name<space>   <space> Max_walltime<space><space>  Max_CPU <space>  <space> Max_RAM <br/>
-workq     10H          10         40GB<br/>
-short     24H          20          80GB<br/>
-long      72H          50         200GB<br/>
-super     360H        100         400GB<br/>
-gpu       72H          64         400GB<br/>
-</pre>
+
+To get a list of avaible queues, at the command line do
+
+`qstat -Q`
+
+To get full information on one queue, at the command line do
+
+`qstat -Qf <queue_name>`
+
+Maximum wallclock time is at `resources_max.walltime`
+
 Only workq and gpu queues support interactive jobs for now.
 
 ## [ssh to the cluster login node](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md)
