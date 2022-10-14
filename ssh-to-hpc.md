@@ -26,6 +26,8 @@ The `-X` is for X windows forwarding.
 
 ***Remember, you cannot ssh to compute (CPU) or GPU nodes directly; you need to use qsub -I***
 
+***If you want X forwarding, use qsub -IX***
+
 To allow a program on the cluster to open a window on your local computer (e.g. MS Windows PC or Mac or Linux) you need 
 to have an "X Window" (X11) server running on your local machine.
 This is automatic if you use mobaxterm (PCs, https://mobaxterm.mobatek.net/) or Xquartz (Mac, https://www.xquartz.org/) terminals.
