@@ -8,17 +8,17 @@ See https://docs.google.com/document/d/1N4ptdEcy8IWBbYXaNW8SQYdzMQ3GncfdETTuqGzb
 
 ### If you want to log in from an command shell
 
+#### For staff:
+
 `ssh -X nusstf\\gmsfoo@172.25.138.10`
 
-for staff and
+#### For students:
 
 `ssh -X nusstu\\e999999@172.25.138.10`
 
-for students and
+#### For visitor accounts:
 
 `ssh -X nusext\\gmv999@172.25.138.10`
-
-for visitor accounts.
 
 The `-X` is for X windows forwarding.
 
@@ -26,7 +26,7 @@ The `-X` is for X windows forwarding.
 
 ***Remember, you cannot ssh to compute (CPU) or GPU nodes directly; you need to use qsub -I***
 
-***If you want X forwarding, from the new interactive session, use qsub -IX***
+***If you want X forwarding from the new interactive session, use qsub -IX***
 
 To allow a program on the cluster to open a window on your local computer (e.g. MS Windows PC or Mac or Linux) you need 
 to have an "X Window" (X11) server running on your local machine.
