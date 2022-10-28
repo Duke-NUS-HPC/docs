@@ -150,7 +150,7 @@ Distributed Version: https://mynbox.nus.edu.sg/u/tirFLFuqxQGkKsUJ/0ef6dd75-1755-
 
     `ipython kernel install --name <env_name> --user`
 7. Exit the container by typing `exit`
-9. Two ways to open jupyter notebook
+9. Three ways to open jupyter notebook
 - First way<br>
      start an interactive job with `qsub -I`. Caution: interactive jobs are only applicable for `workq` and `gpu` queue.
     
@@ -159,6 +159,11 @@ Distributed Version: https://mynbox.nus.edu.sg/u/tirFLFuqxQGkKsUJ/0ef6dd75-1755-
     `port` number can be changed to any other number except 8888 if other people are using the same port. example: 8889
     
     can add `--nv` flag to monitor GPU usage<br/>
+    On local computer, open a **new Mobaxterm tab** with:
+    
+    `ssh -L 8080:host:8889 nusstu\\xxxx@hpc.duke-nus.edu.sg` 
+    
+    for `host` please check which node is assigned for the job unless specified with `vnode`
     
 - Second way: use alternative job.sh (can submit to any queue)
 ```
@@ -177,17 +182,41 @@ printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/tensorflow_cmd.
 
 singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
 
-exit 0
+EOF
 ```
 In the end, submit an batch job with x-forwarding: `qsub -V job.sh`
     
-8. On local computer, open a **new Mobaxterm tab** with:
+      On local computer, open a **new Mobaxterm tab** with:
     
-    `ssh -L 8888:host:8889 nusstu\\xxxx@172.25.138.10` 
+    `ssh -L 8080:host:8889 nusstu\\xxxx@hpc.duke-nus.edu.sg` 
     
-    for `host` please check which node is assigned for the job unless specified with `vnode`
+    for `host` please check which node is assigned for the job unless specified with `vnode`;
+    On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8080`. Enter password.
+- Third way (by Mingxuan, fastest)
+     set up key-pairs, which means you should be able to log into the server via `ssh hpc`;
+     in the new `job.sh`:
+```
+#!/bin/sh
+#PBS -N yourjobname
+#PBS -q workq
+#PBS -l walltime=01:00:00
+#PBS -l select=1:ncpus=9:mem=10gb:ngpus=0
+#PBS -koe
+
+HOME_LOC=/data/rozen/home/e0833634/whatever
+cd $PBS_O_WORKDIR
+image="/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu20-04.sif"
+module load singularity
+printf "activate singularity successful\n" >>$PBS_O_WORKDIR/logs/tensorflow_cmd.log
+
+singularity exec $image jupyter notebook --no-browser --NotebookApp.token="123" --NotebookApp.password="123" --port=8889 --ip=0.0.0.0 << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+
+EOF
+```
+  submit the job via `qsub -V job.sh`;
+  open a local jupyter lab app, 
     
-9. On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8888`. Enter password.
+9. On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8080`. Enter password.
 10. Switch to singularity kernel within jupyter notebook.
 11. Open a new python script and test with:
     ```python
