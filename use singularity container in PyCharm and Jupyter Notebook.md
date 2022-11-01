@@ -119,9 +119,8 @@ Related resources for how to [set up conda environment for jupyter notebook](htt
 and [how to install tensorflow-gpu using conda](https://github.com/Duke-NUS-HPC/docs/blob/main/Install%20tensorflow-gpu.md)
 
 
-***Replace following `$image` with the container needed, example: `/data/rozen/home/e0833634/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu20-04.sif` (15G)<br>***
-
-Distributed Version: https://mynbox.nus.edu.sg/u/tirFLFuqxQGkKsUJ/0ef6dd75-1755-4a6d-8b0f-836d9a0960ce?l, and here is the [source code](https://github.com/ynuozhang/BuildContainer/blob/master/tf2v10.def) if you are interested.
+***Replace following `$image` with the container needed, example: `/data/rozen/home/e0833634/distributed_containers/py38_cuda11-4-2_nodriver_cudnn8-2-4_torch-1-11_tf-2-8-0_ubuntu20-04.sif` (15G)<br>***
+This file can be accessed by anyone from the HPC, and here is the [source code](https://github.com/ynuozhang/BuildContainer/blob/master/tf2v10.def) if you are interested.
 ## Optional: Install new packages
 1. Login hpc via dashboard or ssh
 2. `module load singularity` 
@@ -184,14 +183,15 @@ singularity exec $image jupyter notebook --no-browser --port=8889 --ip=0.0.0.0 <
 
 EOF
 ```
+
 In the end, submit an batch job with x-forwarding: `qsub -V job.sh`
     
-      On local computer, open a **new Mobaxterm tab** with:
+On local computer, open a **new Mobaxterm tab** with:
+`ssh -L 8080:host:8889 nusstu\\xxxx@hpc.duke-nus.edu.sg` 
     
-    `ssh -L 8080:host:8889 nusstu\\xxxx@hpc.duke-nus.edu.sg` 
+For `host` please check which node is assigned for the job unless specified with `vnode`;<br>
+On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8080`. Enter password.
     
-    for `host` please check which node is assigned for the job unless specified with `vnode`;
-    On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8080`. Enter password.
 - Third way (by Mingxuan, fastest)
      set up key-pairs, which means you should be able to log into the server via `ssh hpc`;
      in the new `job.sh`:
@@ -214,9 +214,8 @@ singularity exec $image jupyter notebook --no-browser --NotebookApp.token="123" 
 EOF
 ```
   submit the job via `qsub -V job.sh`;
-  open a local jupyter lab app, 
-    
-9. On your local computer, open a browser from Chrome or FireFox and browse to `http://localhost:8080`. Enter password.
+  open a local jupyter lab app, access the jupyter notebook through token and password.
+  
 10. Switch to singularity kernel within jupyter notebook.
 11. Open a new python script and test with:
     ```python
