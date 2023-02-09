@@ -216,7 +216,8 @@ EOF
   submit the job via `qsub -V job.sh`;<br>
   On local computer, open a **new Mobaxterm tab** with:
   `ssh -L 8080:host:8889 hpc` (this `hpc` should be set up by key-pair already);<br>
-  open a local jupyter lab app, access the jupyter notebook through `http://localhost:8080`, enter the token and password.
+  For `host` please check which node is assigned for the job unless specified with `vnode`;<br>
+  Open a local jupyter lab app, access the jupyter notebook through `http://localhost:8080`, enter the token and password.
   
 10. Switch to singularity kernel within jupyter notebook.
 11. Open a new python script and test with:
