@@ -25,5 +25,6 @@ Currently we have restrictions of 1 gpu per job submission. If you need more res
 - The input and output directory structures will be the same as shown in the example folder.
 - Copy a copy to your own directory if needed
 - Example input: actin.fasta
-- Example output: Output will be stored under the folder looks like `/data/rozen/home/e0833634/distributed_containers/alphafold_2.3.1_container/output/502180_af231_monomer_full_dbs_o`
-- Example log: modify `.sh` files line 75 if you want to change the location of your log.
+- Example output: Output will be stored under the folder looks like `/data/rozen/home/e0833634/distributed_containers/alphafold_2.3.1_container/examples/output/504688_af231_monomer_full_dbs_o`
+- Example log: modify `.sh` files line 75 if you want to change the location of your log. The log of prediction should look like this file: `executing.504688.hn-10-03` <br>
+![image](https://user-images.githubusercontent.com/89775211/227446652-4bcbc37c-1b29-4639-919a-d5e351dadaab.png)
