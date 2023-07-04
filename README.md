@@ -13,7 +13,19 @@ To get full information on one queue, at the command line do
 
 Maximum wallclock time is at `resources_max.walltime`
 
-Only workq and gpu queues support interactive jobs for now.
+## Sample batch job submission resource request
+If not specified, default resources assigned per job is: 1 cpu, 4gb mem, 5min walltime
+```
+#!/bin/bash
+#PBS -l select=1:ncpus=1:mem=4gb
+#PBS -l walltime=00:05:00
+#PBS -q workq
+#PBS -N jobname
+#PBS -o path/my.out
+#PBS -e path/my.err
+
+scripts
+```
 
 ## [ssh to the cluster login node](https://github.com/Duke-NUS-HPC/docs/blob/main/ssh-to-hpc.md)
 
